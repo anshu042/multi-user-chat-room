@@ -1,58 +1,57 @@
-# Secure Instant Messaging Platform - FlaskSocket Messenger
+# 💬 Multi-User Chat Room Application
 
-A real-time chat application built with **Flask**, **Socket.IO**, and **SQLAlchemy**. This application allows users to register, create private chat rooms, and exchange instant messages with a modern "Dark Glass" UI.
+![Project Status](https://img.shields.io/badge/status-active-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
+![Flask](https://img.shields.io/badge/Flask-2.2.2-lightgrey)
+![Firebase](https://img.shields.io/badge/Database-Firebase_Firestore-orange)
 
-## 🚀 Features
+A robust, real-time secure instant messaging platform built with **Python Flask**, **Socket.IO**, and **Google Firebase**. This application features a modern "Dark Glass" UI, secure user authentication, and persistent cloud-based message storage.
 
-* **Real-time Messaging:** Instant bi-directional communication using WebSockets (Flask-SocketIO).
-* **User Authentication:** Secure Signup and Login system with password hashing (PBKDF2 SHA256).
-* **Private Chat Rooms:** Create distinct chat rooms between users via email invitation.
-* **Persistent Chat History:** Messages are stored in a SQLite database and retrieved upon loading the chat.
-* **Chat Management:**
-    * Clear chat history for a specific room.
-    * Remove chats/users from your sidebar.
-* **Modern UI:** Custom CSS featuring a responsive split-pane login and a glassmorphism-styled chat interface.
+---
+
+## 🌟 Features
+
+* **⚡ Real-time Messaging:** Bi-directional low-latency communication using WebSockets (`Flask-SocketIO`).
+* **🔒 Secure Authentication:** Custom Signup and Login system utilizing `PBKDF2 SHA256` password hashing.
+* **☁️ Cloud Persistence:** All user data and chat history are securely stored in **Google Cloud Firestore**, ensuring data isn't lost on server restarts.
+* **👥 Private Chat Rooms:** Initiate private conversations with other users via email invitations.
+* **🛠️ Chat Management:**
+    * **Clear History:** Instantly delete all messages in a specific chat room.
+    * **Remove Chat:** Hide users from your active sidebar without deleting history.
+* **🎨 Modern UI:** A responsive, glassmorphism-inspired interface ("Dark Glass") with a split-pane design.
+
+---
 
 ## 🛠️ Tech Stack
 
-* **Backend:** Python, Flask
-* **WebSockets:** Flask-SocketIO
-* **Database:** SQLite (Default), SQLAlchemy ORM
-* **Frontend:** HTML5, CSS3, JavaScript (Socket.IO client, jQuery)
-* **Server:** Gunicorn (Configuration provided)
+| Component | Technology | Description |
+| :--- | :--- | :--- |
+| **Backend** | Python, Flask | Core application server framework. |
+| **WebSockets** | Flask-SocketIO | Handles real-time events and message broadcasting. |
+| **Database** | Firebase Firestore | NoSQL cloud database for storing Users, Rooms, and Messages. |
+| **Frontend** | HTML5, CSS3, JS | Custom responsive UI with Socket.IO client integration. |
+| **Server** | Gunicorn + Eventlet | Production-ready WSGI/ASGI server configuration. |
+
+---
 
 ## 📂 Project Structure
 
 ```text
-FlaskSocket-Messenger/
+multi-user-chat-room/
+├── instance/              # Instance specific config
 ├── myapp/
-│   ├── __init__.py          # App factory and DB initialization
-│   ├── config.py            # App configuration variables
-│   ├── database.py          # Database models (User, Chat, Message)
-│   ├── views.py             # HTTP routes (Auth, Chat logic)
-│   ├── static/              # CSS, JS, and Images
-│   └── templates/           # HTML Templates (auth.html, chat.html, etc.)
-├── instance/
-│   └── database.db          # SQLite Database (generated on run)
-├── .env                     # Environment variables
-├── gunicorn_config.py       # Production server config
-├── requirements.txt         # Python dependencies
-└── server.py                # Application entry point
+│   ├── static/            # CSS (auth.css, chat.css), JS, and Images
+│   ├── templates/         # HTML Templates (auth.html, chat.html)
+│   ├── __init__.py        # App factory and Flask extension initialization
+│   ├── config.py          # Environment configuration
+│   ├── database.py        # Firebase Firestore initialization
+│   └── views.py           # Application routes and Auth logic
+├── .env                   # Environment variables (Secret Keys)
+├── gunicorn_config.py     # Gunicorn production config
+├── requirements.txt       # Python dependencies
+├── server.py              # Application entry point
+└── vercel.json            # Deployment configuration
 ```
-
-## 📖 Usage
-
-- **Register:** Create a new account using the "Signup" form.
-- **Login:** Log in with your credentials.
-- **Start a Chat:**
-    * Click the "New Chat" button.
-    * Enter the email address of another registered user.
-- **Chat:** Select the user from the sidebar and start typing. Messages will appear instantly.
-- **Options:** Use the three-dot menu (⋮) next to a user in the sidebar to **Clear Chat** or **Remove User**.
-
-## 🔜 Future Improvements
-- **Profile Management:** Allow users to update their avatars and bio.
-- **Group Chats:** Extend functionality to support multi-user rooms.
 
 ## 🖥️ Preview
 <img width="1919" height="1038" alt="FlaskSocket-Preview01" src="https://github.com/user-attachments/assets/998b0800-48b3-4b71-9600-a9e0f40aa62d" />
